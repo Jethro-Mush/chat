@@ -1,0 +1,15 @@
+<h2>Login Form</h2>
+        <%= form_for @conn, session_path(@conn, :create), [name: :session], fn f -> %>
+            <div class="container">
+            
+            <label for="psw"><b>Email</b></label>
+            <%= email_input f, :email, class: "form-control", autofocus: "on", placeholder: "Email" %>
+            <label for="psw"><b>Password</b></label>
+            <%= password_input f, :password, class: "form-control", autocomplete: "off", placeholder: "password" %>
+            <%= submit "Login" , class: "btn btn-secondary" %>
+        </div>
+<% end %>
+
+    <!-- <div class="footer">
+        Dont have an Account yet? Register <%= link "here", to: user_path(@conn, :new), class: "btn btn-secondary" %>
+    </div> -->

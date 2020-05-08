@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<%= link "All Users", to: user_path(@conn, :index), class: "nav-link" %>    
+<ul class="navbar-nav">
+        <li class="nav-item ">
+        <% if logged_in?(@conn) do %>
+        <span class="badge badge-dark mr-2"><%= current_user(@conn).username %></span>
+        <%= link "Logout", to: session_path(@conn, :delete), method: :delete, class: "btn btn-secondary" %>
+        
+        </li>
+        <% else %>
+        <li class="nav-item">
+            <%= link "Login", to: session_path(@conn, :new) %>
+        </li>
+        <li class="nav-item">
+            <%= link "Register", to: user_path(@conn, :new) %>
+        </li>
+        
+    </ul>
+    <% end %>
+</nav>
